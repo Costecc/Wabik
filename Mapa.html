@@ -8,7 +8,7 @@
          /* Always set the map height explicitly to define the size of the div
         * element that contains the map. */
          #map {
-             height: 425px;
+             height: 90%;
          }
          /* Optional: Makes the sample page fill the window. */
          html, body {
@@ -30,11 +30,9 @@
         
         function initMap() {
             var lat = document.getElementById("y").value;
-            lat = parseFloat(lat);
-            lat = lat % 85.05;
+            lat = parseFloat(lat%85.05);
             var lng = document.getElementById("x").value;
-            lng = parseFloat(lng);
-            console.log(lat);
+            lng = parseFloat(lng%180);
 
             var myLatLng = { lat, lng };
 
