@@ -92,7 +92,7 @@
           }
         });
 
-          //var marker = new google.maps.Marker({                               //Pinezka lokalizacji która jest juz oznaczona jako "B" przez funckcje trasy
+          //var marker = new google.maps.Marker({                               //Pinezka lokalizacji która jest juz oznaczona jako "A" przez funckcje trasy
           //position: {lat: userLat, lng: userLng},
           //map: map
         //});
