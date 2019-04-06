@@ -1,0 +1,3 @@
+[sqlalchemy.dialects]
+postgresql.pygresql = sqlalchemy_pygresql.base:PGDialect_pypostgresql
+
