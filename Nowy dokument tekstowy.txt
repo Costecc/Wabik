@@ -1,0 +1,11 @@
+<div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="https://files.guidedanmark.org/files/484/19792_Bazar_Vest_-_Frugtmarked.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="https://media-cdn.tripadvisor.com/media/photo-s/0d/64/1a/cb/yashil-bazar-green-bazaar.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuaHDXUkEOgFApvMaIuyWYu67IeB_1GrZUXzYLsNQWZykqYeDs" alt="Third slide">
+                        </div>
+                    </div>
