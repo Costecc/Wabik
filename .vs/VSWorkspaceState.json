@@ -3,12 +3,13 @@
     "",
     "\\css",
     "\\IMG",
+    "\\js",
     "\\Layout",
     "\\vendor",
     "\\vendor\\bootstrap",
     "\\vendor\\bootstrap\\css",
     "\\vendor\\bootstrap\\js"
   ],
-  "SelectedNode": "\\Layout\\login.html",
+  "SelectedNode": "\\js\\script.js",
   "PreviewInSolutionExplorer": false
 }

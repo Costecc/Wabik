@@ -17,98 +17,117 @@
 
 <body onload="getData()">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Wabik</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">
+                            Strona główna
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">Szukaj</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Zaloguj</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
     <div class="container">
-      <a class="navbar-brand" href="../index.html">Wabik</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="../index.html">Strona główna
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="search.html">Szukaj</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="login.html">Zaloguj</a>
-              </li>
-          </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Page Content -->
-  <div class="container">
+        <div class="row">
 
-    <div class="row">
+            <div class="col-lg-3">
 
-        <div class="col-lg-3">
-
-            <h1 class="my-4"></h1>
-            <div class="wrap-collabsible">
-                <input id="collapsible" class="toggle" type="checkbox">
-                <label for="collapsible" class="lbl-toggle">Kategorie</label>
-                <div class="collapsible-content">
-                    <div class="content-inner">
-                        <a href="../Layout/kwiaty.html" class="cards">Kwiaty</a>
-                        <a href="../Layout/pamiatki.html" class="cards">Pamiątki</a>
-                        <a href="../Layout/odziez.html" class="cards">Odzież</a>
-                        <a href="../Layout/jedzienie.html" class="cards">Jedzenie</a>
-                        <a href="../Layout/alkohol.html" class="cards">Alkohol</a>
+                <h1 class="my-4"></h1>
+                <div class="wrap-collabsible">
+                    <input id="collapsible" class="toggle" type="checkbox">
+                    <label for="collapsible" class="lbl-toggle">Kategorie</label>
+                    <div class="collapsible-content">
+                        <div class="content-inner">
+                            <a href="../Layout/kwiaty.html" class="cards">Kwiaty</a>
+                            <a href="../Layout/pamiatki.html" class="cards">Pamiątki</a>
+                            <a href="../Layout/odziez.html" class="cards">Odzież</a>
+                            <a href="../Layout/jedzienie.html" class="cards">Jedzenie</a>
+                            <a href="../Layout/alkohol.html" class="cards">Alkohol</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="20" value="10" class="slider" id="myRange" />
-                <p>Value: <span id="demo23"></span> km</p>
-            </div>
-            <script>
-                var slider = document.getElementById("myRange");
-                var output = document.getElementById("demo23");
-                output.innerHTML = slider.value;
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="20" value="10" class="slider" id="myRange" />
+                    <p>Value: <span id="demo23"></span> km</p>
+                </div>
+                <script>
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("demo23");
+                    output.innerHTML = slider.value;
 
-                slider.oninput = function () {
-                    output.innerHTML = this.value;
-                    console.log("Cokolwiek");
-                }
-            </script>
+                    slider.oninput = function () {
+                        output.innerHTML = this.value;
+                        console.log("Cokolwiek");
+                    }
+                </script>
+
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+                <div id="data">
+                    <input type="text" id="y" />
+                    <input type="text" id="x" />
+                    <button title="klik" onclick="initMap()" />
+                </div>
+
+                <div id="floating-panel">
+                    <b>Mode of Travel: </b>
+                    <select id="mode">
+                        <option value="DRIVING">Driving</option>
+                        <option value="WALKING">Walking</option>
+                        <option value="BICYCLING">Bicycling</option>
+                        <option value="TRANSIT">Transit</option>
+                    </select>
+                </div>
+
+                <div id="map"></div>
+
+                <div class="row" id="produkty">
+                </div>
+                <!-- /.row -->
+            </div>
+
+            <!-- /.col-lg-9 -->
 
         </div>
-      <!-- /.col-lg-3 -->
+        <!-- /.row -->
 
-      <div class="col-lg-9">
-          <div id="map"></div>
-
-          <div class="row" id="produkty">
-          </div>
-          <!-- /.row -->
-      </div>
-
-      <!-- /.col-lg-9 -->
-
-    </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-3 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
-  </footer>
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/script.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3SR0PZX1Ib_V_XtdoyN-AgtzmtVmGTy0&callback=initMap">
+    </script>
 </body>
 
 </html>
