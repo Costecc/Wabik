@@ -32,8 +32,8 @@
 </head>
 <body>
     <div id="data">
-        <input type="text" id="y" />                               
-        <input type="text" id="x" />                                
+        <input type="text" id="destLat" />                                  <!--zaciągane z bazy -->                              
+        <input type="text" id="destLng" />                                
         <button title="klik" onclick="initMap()" />
     </div>
 
@@ -50,33 +50,26 @@
     <div id="map"></div>
 
     <script>
-        var userLat;
-        var userLng;
-        var myLatLng;
         var map;
-        var my_lat;
-        var my_lng;
+        var userLat, userLng;
+        var myLatLng;
+        var y, x;
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {    // pytanie do wywalenia 
+        if (navigator.geolocation) {                                              //Pytanie o pozwolenie do wywalenia-
+          navigator.geolocation.getCurrentPosition(function (position) {          //będzie zadane na @home, nie tej podstronie.
+                                                                                  
+                y = position.coords.latitude;
+                x = position.coords.longitude;
 
-                my_lat = position.coords.latitude;
-                my_lng = position.coords.longitude;
-
-
-                // infoWindow.setPosition(pos);
                 infoWindow.setContent('Location found.');
                 infoWindow.open(map);
-                //map.setCenter(pos);
+               
             }, function () {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
         } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
+            handleLocationError(false, infoWindow, map.getCenter());     // Browser doesn't support Geolocation
         }
-
 
 
       function initMap() {
@@ -107,14 +100,8 @@
       function calculateAndDisplayRoute(directionsService, directionsDisplay ) {
         var selectedMode = document.getElementById('mode').value;
           directionsService.route({
-
-            
-
-            origin: { lat: my_lat, lng: my_lng },
-            // origin: { lat: pos.lat, lng: pos.lng },
-            destination: { lat: userLat, lng: userLng },  
-          
-            // --> { Lat celu z bazy danych, lng celu z bazy dancyh},
+                        origin: { lat: userLat, lng: userLng }
+                        destination: { lat: destLat, lng: destLng },            // --> { Lat celu z bazy danych, lng celu z bazy dancyh},
             travelMode: google.maps.TravelMode[selectedMode]
         }, function(response, status) {
           if (status == 'OK') {
@@ -124,10 +111,6 @@
           }
         });
 
-          //var marker = new google.maps.Marker({                               //Pinezka lokalizacji kt�ra jest juz oznaczona jako "B" przez funckcje trasy
-          //position: {lat: userLat, lng: userLng},
-          //map: map
-        //});
 
       }
     </script>
