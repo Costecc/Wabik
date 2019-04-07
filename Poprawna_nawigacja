@@ -75,9 +75,9 @@
 
 
           function initMap() {
-                userLat = document.getElementById("y");
+                userLat = document.getElementById("y").value;
                 userLat = parseFloat(userLat%85.05);
-                userLng = document.getElementById("x");
+                userLng = document.getElementById("x").value;
                 userLng = parseFloat(userLng % 180);
 
                 var directionsDisplay = new google.maps.DirectionsRenderer;
