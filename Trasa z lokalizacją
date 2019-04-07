@@ -57,14 +57,18 @@
         var y;
         var x;
 
-        var x = document.getElementById("demo");
-
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
           } else {
             window.alert("Geolocation is not supported by this browser.");
           }
+        }
+
+        function showPosition(position) {
+            y = position.coords.latitude;
+            x = position.coords.longitude;
+
         }
 
         function showError(error) {
@@ -83,16 +87,11 @@
               break;
           }
         }
-        function showPosition(position) {
-            y = position.coords.latitude;
-            x = position.coords.longitude;
-
-        }
 
       function initMap() {
-            userLat = document.getElementById("y").value;
+            userLat = document.getElementById("y");
             userLat = parseFloat(userLat%85.05);
-            userLng = document.getElementById("x").value;
+            userLng = document.getElementById("x");
             userLng = parseFloat(userLng%180);
 
 
@@ -133,6 +132,7 @@
         //});
 
       }
+        console.log(myLatLng);
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3SR0PZX1Ib_V_XtdoyN-AgtzmtVmGTy0&callback=initMap">
