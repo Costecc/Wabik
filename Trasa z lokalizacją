@@ -32,8 +32,8 @@
 </head>
 <body>
     <div id="data">
-        <input type="text" id="y" />                                <!-- Pobierz wsp z GPS -->
-        <input type="text" id="x" />                                <!-- Pobierz wsp z GPS -->
+        <!--<input type="text" id="y" />   -->                              <!-- Pobierz wsp z GPS -->
+        <!--<input type="text" id="x" />   -->                              <!-- Pobierz wsp z GPS -->
         <button title="klik" onclick="initMap()" />
     </div>
 
@@ -54,6 +54,8 @@
         var userLng;
         var myLatLng;
         var map;
+        var y;
+        var x;
 
         var x = document.getElementById("demo");
 
@@ -82,8 +84,8 @@
           }
         }
         function showPosition(position) {
-              userLat = position.coords.latitude;
-            userLng = position.coords.longitude;
+            y = position.coords.latitude;
+            x = position.coords.longitude;
 
         }
 
@@ -92,6 +94,7 @@
             userLat = parseFloat(userLat%85.05);
             userLng = document.getElementById("x").value;
             userLng = parseFloat(userLng%180);
+
 
             var directionsDisplay = new google.maps.DirectionsRenderer;
             var directionsService = new google.maps.DirectionsService;
