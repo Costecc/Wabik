@@ -32,8 +32,8 @@
 </head>
 <body>
     <div id="data">
-        <input type="text" id="destLat" />                                  <!--zaciągane z bazy -->                              
-        <input type="text" id="destLng" />                                
+        <input type="text" id="destLat" />                            <!-- do pobrania z bazy-->
+        <input type="text" id="destLng" />                            <!-- do pobrania z bazy-->
         <button title="klik" onclick="initMap()" />
     </div>
 
@@ -50,71 +50,71 @@
     <div id="map"></div>
 
     <script>
-        var map;
-        var userLat, userLng;
-        var myLatLng;
-        var y, x;
+            var userLat, userLng;
+            var map;
+            var y, x;   
 
-        if (navigator.geolocation) {                                              //Pytanie o pozwolenie do wywalenia-
-          navigator.geolocation.getCurrentPosition(function (position) {          //będzie zadane na @home, nie tej podstronie.
-                                                                                  
-                y = position.coords.latitude;
-                x = position.coords.longitude;
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {                          // To ma byc na @home zamiast tutaj
 
-             // infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
-                infoWindow.open(map);
-             // map.setCenter(pos);
-               
-            }, function () {
-                handleLocationError(true, infoWindow, map.getCenter());
+                    y = position.coords.latitude;
+                    x = position.coords.longitude;
+
+                    // infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    //map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+
+
+          function initMap() {
+                userLat = document.getElementById("y");
+                userLat = parseFloat(userLat%85.05);
+                userLng = document.getElementById("x");
+                userLng = parseFloat(userLng % 180);
+
+                var directionsDisplay = new google.maps.DirectionsRenderer;
+                var directionsService = new google.maps.DirectionsService;
+
+            map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 12,
+              center: {lat: userLat, lng: userLng}
             });
-        } else {
-            handleLocationError(false, infoWindow, map.getCenter());     // Browser doesn't support Geolocation
-        }
+            directionsDisplay.setMap(map);
 
 
-      function initMap() {
-            userLat = document.getElementById("y").value;
-            userLat = parseFloat(userLat%85.05);
-            userLng = document.getElementById("x").value;
-            userLng = parseFloat(userLng % 180);
 
-            var directionsDisplay = new google.maps.DirectionsRenderer;
-            var directionsService = new google.maps.DirectionsService;
-
-            myLatLng = { userLat, userLng };
-
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: {lat: userLat, lng: userLng}
-        });
-        directionsDisplay.setMap(map);
-         
-
-
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-        document.getElementById('mode').addEventListener('change', function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
-      }
-
-      function calculateAndDisplayRoute(directionsService, directionsDisplay ) {
-        var selectedMode = document.getElementById('mode').value;
-          directionsService.route({
-                        origin: { lat: userLat, lng: userLng }
-                        destination: { lat: destLat, lng: destLng },            // --> { Lat celu z bazy danych, lng celu z bazy dancyh},
-            travelMode: google.maps.TravelMode[selectedMode]
-        }, function(response, status) {
-          if (status == 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            //window.alert('Directions request failed due to ' + status);
+              calculateAndDisplayRoute(directionsService, directionsDisplay);
+            document.getElementById('mode').addEventListener('change', function() {
+              calculateAndDisplayRoute(directionsService, directionsDisplay);
+            });
           }
-        });
 
+          function calculateAndDisplayRoute(directionsService, directionsDisplay ) {
+            var selectedMode = document.getElementById('mode').value;
+              directionsService.route({
 
-      }
+                        origin: { lat: userLat, lng: userLng },
+                        destination: { lat: destLat, lng: destLng },                    // --> { Lat celu z bazy danych, lng celu z bazy dancyh},
+
+                travelMode: google.maps.TravelMode[selectedMode]
+            }, function(response, status) {
+              if (status == 'OK') {
+                directionsDisplay.setDirections(response);
+              } else {
+                //window.alert('Directions request failed due to ' + status);
+              }
+            });
+            
+
+          }
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3SR0PZX1Ib_V_XtdoyN-AgtzmtVmGTy0&callback=initMap">
