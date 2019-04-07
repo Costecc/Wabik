@@ -15,19 +15,19 @@
     <link href="../css/shop-homepage.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="getData()">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Wabik</a>
+      <a class="navbar-brand" href="../index.html">Wabik</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                  <a class="nav-link" href="Home.html">Strona główna
+                  <a class="nav-link" href="../index.html">Strona główna
                       <span class="sr-only">(current)</span>
                   </a>
               </li>
@@ -47,119 +47,44 @@
 
     <div class="row">
 
-      <div class="col-lg-3">
+        <div class="col-lg-3">
 
-        <h1 class="my-4"></h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Kwiaty</a>
-          <a href="#" class="list-group-item">Produkty spożywcze</a>
-          <a href="#" class="list-group-item">Kategorie użytkowe</a>
+            <h1 class="my-4"></h1>
+            <div class="wrap-collabsible">
+                <input id="collapsible" class="toggle" type="checkbox">
+                <label for="collapsible" class="lbl-toggle">Kategorie</label>
+                <div class="collapsible-content">
+                    <div class="content-inner">
+                        <a href="Layout/kwiaty.html" class="cards">Kwiaty</a>
+                        <a href="Layout/pamiatki.html" class="cards">Pamiątki</a>
+                        <a href="Layout/odziez.html" class="cards">Odzież</a>
+                        <a href="Layout/jedzienie.html" class="cards">Jedzenie</a>
+                        <a href="Layout/alkohol.html" class="cards">Alkohol</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="20" value="10" class="slider" id="myRange" />
+                <p>Value: <span id="demo23"></span> km</p>
+            </div>
+            <script>
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("demo23");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function () {
+                    output.innerHTML = this.value;
+                    console.log("Cokolwiek");
+                }
+            </script>
+
         </div>
-
-      </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                  <div class="carousel-item active">
-                      <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-                  </div>
-              </div>
-            
-          </div>
+          <div id="map"></div>
 
-          <div class="row">
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item One</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item Two</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item Three</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item Four</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item Five</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                      <div class="card-body">
-                          <h4 class="card-title">
-                              <a href="#">Item Six</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                  </div>
-              </div>
+          <div class="row" id="produkty">
           </div>
           <!-- /.row -->
       </div>
@@ -183,7 +108,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

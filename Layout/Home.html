@@ -51,26 +51,21 @@
 
         <div class="col-lg-3">
             <h1 class="my-4"></h1>
-            <div class="list-group">
-                <a href="Produkt1.html" class="list-group-item">Kwiaty</a>
-                <a href="#" class="list-group-item">Produkty spożywcze</a>
-                <a href="#" class="list-group-item">Kategorie użytkowe</a>
+            <div class="wrap-collabsible">
+                <input id="collapsible" class="toggle" type="checkbox">
+                <label for="collapsible" class="lbl-toggle">Kategorie</label>
+                <div class="collapsible-content">
+                    <div class="content-inner">
+                        <a href="../Layout/Produkt1.html" class="cards">Kwiaty</a>
+                        <a href="../Layout/Produkt1.html" class="cards">Produkty spożywcze</a>
+                        <a href="../Layout/Produkt1.html" class="cards">Kategorie użytkowe</a>
+                    </div>
+                </div>
             </div>
             <div class="slidecontainer">
                 <input type="range" min="1" max="20" value="10" class="slider" id="myRange" />
                 <p>Value: <span id="demo23"></span> km</p>
             </div>
-            <script>
-                var slider = document.getElementById("myRange");
-                var output = document.getElementById("demo23");
-                output.innerHTML = slider.value;
-
-                slider.oninput = function () {
-                    output.innerHTML = this.value;
-                    console.log("Cokolwiek");
-                }
-            </script>
-
         </div>
       <!-- /.col-lg-3 -->
 
@@ -124,6 +119,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
 
     <!-- script -->
 
