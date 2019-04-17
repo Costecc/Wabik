@@ -1,0 +1,47 @@
+{%extends "/layouts/layout1.html" %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+{% include "security/_messages.html" %}
+{% block title %}
+Logowanie
+{% endblock %}
+{% block nav %}
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">Wabik</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/">
+                      Strona główna
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+          </ul>
+
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container">
+    <div class="wrapper">
+      <form class="form-signin" action="{{ url_for_security('register') }}" method="POST" name="register_user_form">
+        {{ register_user_form.hidden_tag() }}
+        {{ render_field_with_errors(register_user_form.email, class="form-control") }}
+        {{ render_field_with_errors(register_user_form.password, class="form-control") }}
+        {% if register_user_form.password_confirm %}
+          {{ render_field_with_errors(register_user_form.password_confirm, class="form-control") }}
+        {% endif %}
+        {{ render_field(register_user_form.submit, class="btn btn-lg btn-primary btn-block") }}
+        <a class="nav-link" href="/login" align="center">Login</a>
+      </form>
+    </div><
+</div>
+{% include "security/_menu.html" %}
+{% endblock %}
